@@ -7,7 +7,7 @@ import { CreateScenarioUseCase } from './use-cases/create-scenario.use-case';
 export class ScenarioService {
   constructor(private readonly createScenarioUseCase: CreateScenarioUseCase) {}
 
-  create(createScenarioDto: CreateScenarioDto) {
+  create(data: CreateScenarioDto) {
     return this.createScenarioUseCase.execute(data);
   }
 
