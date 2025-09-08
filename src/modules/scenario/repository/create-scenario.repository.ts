@@ -1,4 +1,3 @@
-
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../shared/databases/prisma.database';
 import { CreateScenarioDto } from '../dto/create-scenario.dto';
