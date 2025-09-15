@@ -1,5 +1,5 @@
 import { Injectable, Logger, ServiceUnavailableException } from "@nestjs/common";
-import { ListScenarioRepository } from "../repository/list-scenario.repositry";
+import { ListScenarioRepository } from "../repository/list-scenario.repository";
 
 
 
