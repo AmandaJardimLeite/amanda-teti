@@ -1,18 +1,19 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { DeleteOptionRepository } from '../repository';
+import { Option } from '../entities/option.entity';
 
 @Injectable()
 export class DeleteScenarioUseCase {
   constructor(
-    private readonly deleteScenarioRepository: DeleteOptionRepository,
+    private readonly deleteOptionRepository: DeleteOptionRepository,
     private readonly logger: Logger,
   ) {}
 
   async execute(id:string) {
     try {
-      const scenario = await this.deleteScenarioRepository.DeleteOption(id);
-      this.logger.log(`Scenario created: ${scenario.name}`);
-      return scenario;
+      const option = await this.deleteOptionRepository.DeleteOption(id);
+      this.logger.log(`Option created: ${Option.name}`);
+      return option;
     } catch (error) {
       this.logger.error(error);
       throw error;

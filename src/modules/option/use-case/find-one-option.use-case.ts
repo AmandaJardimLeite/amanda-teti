@@ -1,21 +1,21 @@
 import { Injectable, Logger } from "@nestjs/common";
-import { findOneScenarioReposiory } from "../repository/find-one-option.repository";
+import { OptionReposiory } from "../repository";
 
 
 
 
 
 @Injectable()
-export class FindOneScenarioUseCase {
+export class FindOneOptionUseCase {
     constructor(
-        private readonly findoneScenarioRepository: findOneScenarioReposiory,
+        private readonly findoneOptionRepository: OptionReposiory,
         private readonly logger: Logger,
     )   {}
 
     async execute(id:string) {
         try {
-            const scenario = await this.findoneScenarioRepository.findOne(id);
-            return scenario;
+            const option = await this.findoneOptionRepository.findOne(id);
+            return option;
 
         } catch (error) {
             this.logger.error(error);
