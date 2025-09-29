@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../shared/databases/prisma.database';
-import { UpdateScenarioDto } from 'src/modules/scenario/dto/update-scenario.dto';
+import { UpdateOptionDto } from 'src/modules/option/dto/update-option.dto';
 
 @Injectable()
-export class UpdateScenarioRepository {
+export class UpdateOptionRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async UpadateScenario(id:string, data:UpdateScenarioDto) {
-    const scenario = await this.prisma.scenario.update({
+  async UpadateOption(id:string, data:UpdateOptionDto) {
+    const option = await this.prisma.option.update({
         where:{
             id
         },
         data
         });
-    return scenario;
+    return Option;
   }
 }

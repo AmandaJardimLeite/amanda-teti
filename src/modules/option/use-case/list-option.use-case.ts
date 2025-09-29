@@ -1,23 +1,23 @@
 import { Injectable, Logger, ServiceUnavailableException } from "@nestjs/common";
-import { ListScenarioRepository } from "../repository/list-option.repository";
+import { ListOptionRepository } from "../repository/list-option.repository";
 
 
 
 
 @Injectable()
-export class ListScenarioUseCase {
+export class ListOptionUseCase {
   constructor(
-    private readonly listScenarioRepository: ListScenarioRepository,
+    private readonly listOptionRepository: ListOptionRepository,
     private readonly logger: Logger,
     ) {}
 
     async execute() {
         try {
-            const scenario = await this.listScenarioRepository.listScenario();
-            this.logger.log('Scenario list successfully', ListScenarioUseCase.name);
-            return scenario;
+            const option = await this.listOptionRepository.listOption();
+            this.logger.log('Scenario list successfully', ListOptionUseCase.name);
+            return option;
         } catch (err) {
-        const error = new ServiceUnavailableException('error list Scenario', {
+        const error = new ServiceUnavailableException('error list Option', {
             cause: err,
             description:
             `Error on list post: ${err.message}` || 'Unknown error ocurred',

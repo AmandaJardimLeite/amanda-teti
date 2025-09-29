@@ -3,11 +3,11 @@ import { PrismaService } from "src/shared/databases/prisma.database";
 
 
 @Injectable()
-export class findOneScenarioReposiory {
+export class OptionReposiory {
     constructor(private readonly prisma: PrismaService) {}
 
     async findOne(id:string) {
-     return  this.prisma.scenario.findUnique({
+     return  this.prisma.option.findUnique({
         where:{id}
      })
     }

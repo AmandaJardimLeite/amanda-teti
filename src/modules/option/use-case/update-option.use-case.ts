@@ -1,4 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { UpdateOptionRepository } from '../repository';
+import { UpdateOptionDto } from '../dto/update-option.dto';
 
 @Injectable()
 export class UpdateOptionUseCase {
@@ -7,11 +9,11 @@ export class UpdateOptionUseCase {
     private readonly logger: Logger,
   ) {}
 
-  async execute(id: string, data: Update  ScenarioDto) {
+  async execute(id: string, data: UpdateOptionDto) {
     try {
-      const scenario = await this.updateScenarioRepository.UpadateScenario(id, data);
-      this.logger.log(`Scenario with id ${id} updated successfully`);
-      return scenario;
+      const option = await this.updateOptionRepository.UpadateOption(id, data);
+      this.logger.log(`Option with id ${id} updated successfully`);
+      return option;
     } catch (error) {
       this.logger.error(error);
       throw error;

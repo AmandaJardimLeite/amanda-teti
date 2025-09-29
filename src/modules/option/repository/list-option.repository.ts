@@ -2,11 +2,11 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/shared/databases/prisma.database";
 
 @Injectable()
-export class ListScenarioRepository{
+export class ListOptionRepository{
     constructor(private readonly prisma: PrismaService) {}
 
-    async listScenario() {
-        const scenario = await this.prisma.scenario.findMany();
-        return scenario;
+    async listOption() {
+        const option = await this.prisma.option.findMany();
+        return Option;
     }
 }
