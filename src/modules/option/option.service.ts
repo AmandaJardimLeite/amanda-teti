@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { CreateOptionDto } from './dto/create-option.dto';
 import { UpdateOptionDto } from './dto/update-option.dto';
-import { CreateOptionUseCase } from './use-case';
+import { CreateOptionUseCase, DeleteOptionUseCase, FindOneOptionUseCase, ListOptionUseCase, UpdateOptionUseCase } from './use-case';
 
 @Injectable()
 export class OptionService {
   constructor(
-    private readonly createOptionUseCase: CreateOptionUseCase
+    private readonly createOptionUseCase: CreateOptionUseCase,
+    private readonly listOptionUserCase: ListOptionUseCase,
+    private readonly findoneOptionUseCase:  FindOneOptionUseCase,
+    private readonly updateOptionUseCase: UpdateOptionUseCase,
+    private readonly deleteOptionUseCase: DeleteOptionUseCase
   ) {}
 
 
@@ -15,18 +19,18 @@ export class OptionService {
   }
 
   findAll() {
-    return `This action returns all option`;
+    return this.listOptionUserCase.execute();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} option`;
+  findOne(id: string) {
+    return this.findoneOptionUseCase.execute(id);
   }
 
-  update(id: number, updateOptionDto: UpdateOptionDto) {
-    return `This action updates a #${id} option`;
+  update(id: string, data: UpdateOptionDto) {
+    return this.updateOptionUseCase.execute(id,data);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} option`;
+  remove(id: string) {
+    return this.deleteOptionUseCase.execute(id);
   }
 }

@@ -3,7 +3,7 @@ import { DeleteOptionRepository } from '../repository';
 import { Option } from '../entities/option.entity';
 
 @Injectable()
-export class DeleteScenarioUseCase {
+export class DeleteOptionUseCase {
   constructor(
     private readonly deleteOptionRepository: DeleteOptionRepository,
     private readonly logger: Logger,

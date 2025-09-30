@@ -12,7 +12,7 @@ export class CreateOptionRepository {
       name: data.name,
       description: data.description,
       scenario: {
-        connect: { id: data.screnarioId }, // precisa vir preenchido
+        connect: { id: data.screnarioId }, 
       },
     },
   });
