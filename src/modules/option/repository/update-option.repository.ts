@@ -8,11 +8,14 @@ export class UpdateOptionRepository {
 
   async UpadateOption(id:string, data:UpdateOptionDto) {
     const option = await this.prisma.option.update({
-        where:{
-            id
-        },
-        data
-        });
-    return Option;
-  }
+         where: { id },
+      data: {
+      name: data.name,
+      description: data.description,
+      scenario: {
+        connect: { id: data.screnarioId }, 
+      },
+    },
+  });
+}
 }
