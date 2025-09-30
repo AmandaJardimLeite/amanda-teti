@@ -10,8 +10,8 @@ export class OptionService {
   ) {}
 
 
-  create(createOptionDto: CreateOptionDto) {
-    return 'vixmaria';
+  create(data: CreateOptionDto) {
+    return this.createOptionUseCase.execute(data);
   }
 
   findAll() {
