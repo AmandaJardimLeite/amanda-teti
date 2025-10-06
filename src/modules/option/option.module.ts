@@ -10,9 +10,9 @@ const repositories = Object.values(Repositories);
 
 
 @Module({
+  imports: [SharedModule],
   controllers: [OptionController],
   providers: [OptionService, Logger,  ...useCases, ...repositories],
 })
 export class OptionModule {}
-
 
